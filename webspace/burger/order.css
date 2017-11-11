@@ -1,0 +1,39 @@
+body {
+	display:block;
+}
+
+main {
+	margin: 0 auto;
+	width: 45em;
+}
+
+form {
+	display: grid;
+	grid-template-columns: [labels] auto [controls] 1fr;
+	grid-gap: 10px;
+	grid-auto-flow: row;
+}
+
+form > p, label{
+	grid-column:labels;
+}
+
+fieldset  {
+	grid-column: span 2;
+}
+
+
+select {
+	height: 2em;
+	margin: auto 0;
+}
+
+#extras {
+	grid-column: span 2;
+}
+
+button {
+	grid-column: span 2;
+	height: 3em;
+	margin: 0 10em;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Burgerbestellung</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type = "text/css" href="order.css">
+	</head>
+	<body>
+		<main>
+			<h1>Deine Burgerbestellung</h1>
+			<p>Gib deine Daten ein und stell deinen Burger zusammen!!</p>
+			<form method="post"  action="order.php">
+				<label for="kunde_name">Name</label>
+				<input type="text" id="kunde_name" name="kunde_name" placeholder="Max Mustermann" required>
+				<label for="kunde_nr">FH-Personenkennzeichen</label>
+				<input type="text" id="kunde_nr" name="kunde_nr" pattern="[0-9]{10}" placeholder="1234567890" required>
+				<label for="kunde_email">E-Mail</label>
+				<input type="email" id="kunde_email" name="kunde_email" pattern=".*@fh-salzburg\.ac\.at" placeholder="mmustermann.mmt-b2017@fh-salzburg.ac.at" required>
+				<fieldset>
+					<legend>Wähle die gewünschte Zahlungsart aus:</legend>
+					<input type="radio" id="bar" name="zahlmethode" value="Barzahlung" checked>
+					<label for="bar">Barzahlung</label>
+					<input type="radio" id="card" name="zahlmethode" value="FH-Card">
+					<label for="card">FH-Card</label>
+					<input type="radio" id="sofortue" name="zahlmethode" value="Sofortüberweisung">
+					<label for="sofortue">Sofortüberweisung</label>
+				</fieldset>
+				<fieldset>
+					<legend>Wann möchtest du deinen Burger genießen?</legend>
+					<label for="datum">Abholungsdatum</label>
+					<input type="date" id="datum" name="datum" min="2017-11-07" required>
+					<label for="zeit">Uhrzeit</label>
+					<input type="time" id="zeit" name="zeit" min="11:00" max="18:00" required>
+				</fieldset>
+				<h2>Bau dir deinen Burger:</h2>
+				<label for="fleisch">Fleischart:</label>
+				<select name="fleisch" id="fleisch">
+					<option value="Faschiertes vom Rind" selected>Faschiertes vom Rind</option>
+					<option value="Faschiertes gemischt">Faschiertes gemischt (Rind,Schwein)</option>
+					<option value="Bohnenburger">Bohnenburger (vegan)</option>
+					<option value="Hühnerfilet">Hühnerfilet</option>
+				</select>
+				<label for="brot">Brot:</label>				
+				<select name="brot" id="brot">
+					<option value="Weizenbrot" selected>Weizenbrötchen mit Sesam</option>
+					<option value="Volkornbrot">Vollkornbrötchen</option>
+					<option value="Salat als Brot">Salatblätter(vegan)</option>
+				</select>
+				<label for="kaese">Mit Käse?</label>
+				<input type="checkbox" id="kaese" name="kaese">
+				<fieldset id="extras">
+					<legend>Was soll noch in deinen Burger?</legend>
+					<input type="checkbox" id="salat" name="zutat[]" value="Salat">
+					<label for="salat">Salat</label>
+					<input type="checkbox" id="tomate" name="zutat[]" value="Tomate">
+					<label for="tomate">Tomaten</label>
+					<input type="checkbox" id="gurke" name="zutat[]" value="Gurke">
+					<label for="gurke">Essiggurkerl</label> 
+					<input type="checkbox" id="zwiebel" name="zutat[]" value="Zwiebel">
+					<label for="zwiebel">Zwiebeln</label>
+					<input type="checkbox" id="ei" name="zutat[]" value="Ei">
+					<label for="ei">Spiegelei</label>
+					<input type="checkbox" id="speck" name="zutat[]" value="Speck">
+					<label for="speck">Bacon</label>
+				</fieldset>
+				<label for="sauce">Saucenauswahl:</label>
+				<select name="sauce" id="sauce">
+					<option value="Keine Sauce" selected>Keine Sauce</option>
+					<option value="Haussauce">Art des Hauses</option>
+					<option value="Cocktail">Cocktail</option>
+					<option value="Chilli">Chilli</option>
+				</select>
+				<label for="spezial">Spezielle Anweisungen:</label>
+				<textarea name="spezial" id="spezial" maxlength="500"> </textarea>
+				<button type="submit">Bestellung absenden</button>
+			</form>
+		</main>
+	</body>
+</html>
